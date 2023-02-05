@@ -64,8 +64,9 @@ var AbstractEnemy = /*#__PURE__*/function (_ObjectAbstract) {
   }, {
     key: "onClick",
     value: function onClick(x, y) {
-      var calcDistance = Math.floor((0,_js_utils__WEBPACK_IMPORTED_MODULE_1__.distance)(x, y, this.x, this.y));
-      if (calcDistance <= this.radius) {
+      var xAbsolute = this.x - x;
+      var yAbsolute = this.y - y;
+      if (xAbsolute >= -40 && xAbsolute <= 0 && yAbsolute >= -45 && yAbsolute <= 0) {
         return true;
       }
       return false;
@@ -973,8 +974,6 @@ function init() {
       objects["square".concat(quantity)] = new Square(45, 'orange', c, Math.floor(Math.random() * (canvas.width - 135)), 0);
     }
   }, 1000);
-
-  // objects[`square${0}`] = new Square(45, 'orange', c, Math.floor(Math.random() * (canvas.width - 135)), 0)
 }
 
 // Animation Loop

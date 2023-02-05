@@ -25,10 +25,13 @@ export class AbstractEnemy extends ObjectAbstract {
 
 
   onClick(x, y) {
-    const calcDistance = Math.floor(distance(x, y, this.x, this.y))
-    if (calcDistance <= this.radius) {
+    const xAbsolute = this.x - x
+    const yAbsolute = this.y - y
+
+    if ((xAbsolute >= -40 && xAbsolute <= 0) && (yAbsolute >= -45 && yAbsolute <= 0)) {
       return true
     }
+
     return false
 
   }

@@ -101,6 +101,7 @@ function updatePoints(number) {
 function init() {
   clicker = new Clicker(c, mouse.x, mouse.y);
 
+  
   setInterval(() => {
     const random = Math.floor(Math.random() * 100)
     const quantity = Object.values(objects).length + 1
@@ -110,15 +111,14 @@ function init() {
       objects[`square${quantity}`] = new Square(45, 'orange', c, Math.floor(Math.random() * (canvas.width - 135)), 0)
     }
   }, 1000)
-
-  // objects[`square${0}`] = new Square(45, 'orange', c, Math.floor(Math.random() * (canvas.width - 135)), 0)
+  
 }
 
 // Animation Loop
 function animate() {
   if (gameover) return;
   requestAnimationFrame(animate);
-  c.clearRect(0, 0, canvas.width, canvas.height);
+  c.clearRect(0, 0, canvas.width, canvas.height );
 
   for (const property in objects) {
     const object = objects[property];
