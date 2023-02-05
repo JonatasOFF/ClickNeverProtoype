@@ -93,10 +93,7 @@ function updatePoints(number) {
   const pointsField = document.getElementById('points')
   points += number
   pointsField.innerText = `Pontos: ${points}`
-
 }
-
-
 
 function init() {
   clicker = new Clicker(c, mouse.x, mouse.y);
