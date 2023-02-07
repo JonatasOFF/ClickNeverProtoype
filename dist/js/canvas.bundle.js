@@ -64,9 +64,9 @@ var AbstractEnemy = /*#__PURE__*/function (_ObjectAbstract) {
   }, {
     key: "onClick",
     value: function onClick(x, y) {
-      var xAbsolute = this.x - x;
-      var yAbsolute = this.y - y;
-      if (xAbsolute >= -40 && xAbsolute <= 0 && yAbsolute >= -45 && yAbsolute <= 0) {
+      var xAbsolute = this.x - x + 4;
+      var yAbsolute = this.y - y + 76;
+      if (xAbsolute >= -this.width && xAbsolute <= 0 && yAbsolute >= -this.height && yAbsolute <= 0) {
         return true;
       }
       return false;
@@ -169,8 +169,8 @@ var Clicker = /*#__PURE__*/function (_ObjectAbstract) {
   }, {
     key: "update",
     value: function update(x, y) {
-      this.x = x;
-      this.y = y;
+      this.x = x - 4;
+      this.y = y - 76;
       this.draw();
     }
   }]);
@@ -225,7 +225,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "canvas {\r\n    cursor: none;\r\n}\r\n\r\nimg {\r\n    position: absolute;\r\n    z-index: 21;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 100vw;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    background-color: rgb(51, 51, 51);\r\n}\r\n\r\n.text {\r\n    text-transform: capitalize;\r\n    color: #fff;\r\n    font-weight: bold;\r\n    font-size: 4em;\r\n}\r\n\r\n\r\n.points {\r\n    position: absolute;\r\n    right: 25px;\r\n    color: whitesmoke;\r\n    z-index: 9999999999;\r\n}\r\n\r\n\r\n.gameover {\r\n    position: absolute;\r\n    right: calc(50% + -158px);\r\n    top: calc(50% + -79px);\r\n    z-index: 50;\r\n    width: 300px;\r\n    height: 150px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n    border-radius: 8px;\r\n    font-size: 24px;\r\n    background-color: white;\r\n    border: 2px solid grey;\r\n}\r\n\r\n\r\n.gameover.off {\r\n    display: none;\r\n}\r\n\r\n\r\n.gameover>i {\r\n    margin-top: 8px;\r\n    font-size: 10px;\r\n    color: rgb(248, 36, 36);\r\n\r\n}\r\n\r\n\r\n.gameover>button {\r\n    margin-top: 24px;\r\n    padding: 12px;\r\n    border-radius: 24px;\r\n    border: 1px solid whitesmoke;\r\n    background-color: rgb(46, 218, 46);\r\n    transition: background-color, color 0.5s ease-out;\r\n\r\n}\r\n\r\n.gameover>button:hover {\r\n    font-weight: bold;\r\n    background-color: rgb(51, 51, 51);\r\n    color: rgb(248, 36, 36);\r\n}", "",{"version":3,"sources":["webpack://./src/common/styles/global.css"],"names":[],"mappings":"AAAA;IACI,YAAY;AAChB;;AAEA;IACI,kBAAkB;IAClB,WAAW;AACf;;AAEA;IACI,SAAS;IACT,UAAU;IACV,YAAY;IACZ,aAAa;IACb,gBAAgB;IAChB,iCAAiC;AACrC;;AAEA;IACI,0BAA0B;IAC1B,WAAW;IACX,iBAAiB;IACjB,cAAc;AAClB;;;AAGA;IACI,kBAAkB;IAClB,WAAW;IACX,iBAAiB;IACjB,mBAAmB;AACvB;;;AAGA;IACI,kBAAkB;IAClB,yBAAyB;IACzB,sBAAsB;IACtB,WAAW;IACX,YAAY;IACZ,aAAa;IACb,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,uBAAuB;IACvB,kBAAkB;IAClB,eAAe;IACf,uBAAuB;IACvB,sBAAsB;AAC1B;;;AAGA;IACI,aAAa;AACjB;;;AAGA;IACI,eAAe;IACf,eAAe;IACf,uBAAuB;;AAE3B;;;AAGA;IACI,gBAAgB;IAChB,aAAa;IACb,mBAAmB;IACnB,4BAA4B;IAC5B,kCAAkC;IAClC,iDAAiD;;AAErD;;AAEA;IACI,iBAAiB;IACjB,iCAAiC;IACjC,uBAAuB;AAC3B","sourcesContent":["canvas {\r\n    cursor: none;\r\n}\r\n\r\nimg {\r\n    position: absolute;\r\n    z-index: 21;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 100vw;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    background-color: rgb(51, 51, 51);\r\n}\r\n\r\n.text {\r\n    text-transform: capitalize;\r\n    color: #fff;\r\n    font-weight: bold;\r\n    font-size: 4em;\r\n}\r\n\r\n\r\n.points {\r\n    position: absolute;\r\n    right: 25px;\r\n    color: whitesmoke;\r\n    z-index: 9999999999;\r\n}\r\n\r\n\r\n.gameover {\r\n    position: absolute;\r\n    right: calc(50% + -158px);\r\n    top: calc(50% + -79px);\r\n    z-index: 50;\r\n    width: 300px;\r\n    height: 150px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n    border-radius: 8px;\r\n    font-size: 24px;\r\n    background-color: white;\r\n    border: 2px solid grey;\r\n}\r\n\r\n\r\n.gameover.off {\r\n    display: none;\r\n}\r\n\r\n\r\n.gameover>i {\r\n    margin-top: 8px;\r\n    font-size: 10px;\r\n    color: rgb(248, 36, 36);\r\n\r\n}\r\n\r\n\r\n.gameover>button {\r\n    margin-top: 24px;\r\n    padding: 12px;\r\n    border-radius: 24px;\r\n    border: 1px solid whitesmoke;\r\n    background-color: rgb(46, 218, 46);\r\n    transition: background-color, color 0.5s ease-out;\r\n\r\n}\r\n\r\n.gameover>button:hover {\r\n    font-weight: bold;\r\n    background-color: rgb(51, 51, 51);\r\n    color: rgb(248, 36, 36);\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "canvas {\r\n    \r\n}\r\n\r\nimg {\r\n    position: absolute;\r\n    z-index: 21;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 100vw;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    background-color: rgb(51, 51, 51);\r\n}\r\n\r\n.text {\r\n    text-transform: capitalize;\r\n    color: #fff;\r\n    font-weight: bold;\r\n    font-size: 4em;\r\n}\r\n\r\n\r\n.points {\r\n\r\n\r\n    color: whitesmoke;\r\n\r\n}\r\n\r\n\r\n.gameover {\r\n    position: absolute;\r\n    right: calc(50% + -158px);\r\n    top: calc(50% + -79px);\r\n    z-index: 50;\r\n    width: 300px;\r\n    height: 150px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n    border-radius: 8px;\r\n    font-size: 24px;\r\n    background-color: white;\r\n    border: 2px solid grey;\r\n}\r\n\r\n\r\n.gameover.off {\r\n    display: none;\r\n}\r\n\r\n\r\n.gameover>i {\r\n    margin-top: 8px;\r\n    font-size: 10px;\r\n    color: rgb(248, 36, 36);\r\n\r\n}\r\n\r\n\r\n.gameover>button {\r\n    margin-top: 24px;\r\n    padding: 12px;\r\n    border-radius: 24px;\r\n    border: 1px solid whitesmoke;\r\n    background-color: rgb(46, 218, 46);\r\n    transition: background-color, color 0.5s ease-out;\r\n\r\n}\r\n\r\n.gameover>button:hover {\r\n    font-weight: bold;\r\n    background-color: rgb(51, 51, 51);\r\n    color: rgb(248, 36, 36);\r\n}\r\n\r\n\r\n#header-click-never {\r\n    height: 50px;\r\n    padding-bottom: 8px;\r\n    border-bottom: 2px solid black;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/common/styles/global.css"],"names":[],"mappings":"AAAA;;AAEA;;AAEA;IACI,kBAAkB;IAClB,WAAW;AACf;;AAEA;IACI,SAAS;IACT,UAAU;IACV,YAAY;IACZ,aAAa;IACb,gBAAgB;IAChB,iCAAiC;AACrC;;AAEA;IACI,0BAA0B;IAC1B,WAAW;IACX,iBAAiB;IACjB,cAAc;AAClB;;;AAGA;;;IAGI,iBAAiB;;AAErB;;;AAGA;IACI,kBAAkB;IAClB,yBAAyB;IACzB,sBAAsB;IACtB,WAAW;IACX,YAAY;IACZ,aAAa;IACb,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,uBAAuB;IACvB,kBAAkB;IAClB,eAAe;IACf,uBAAuB;IACvB,sBAAsB;AAC1B;;;AAGA;IACI,aAAa;AACjB;;;AAGA;IACI,eAAe;IACf,eAAe;IACf,uBAAuB;;AAE3B;;;AAGA;IACI,gBAAgB;IAChB,aAAa;IACb,mBAAmB;IACnB,4BAA4B;IAC5B,kCAAkC;IAClC,iDAAiD;;AAErD;;AAEA;IACI,iBAAiB;IACjB,iCAAiC;IACjC,uBAAuB;AAC3B;;;AAGA;IACI,YAAY;IACZ,mBAAmB;IACnB,8BAA8B;;AAElC","sourcesContent":["canvas {\r\n    \r\n}\r\n\r\nimg {\r\n    position: absolute;\r\n    z-index: 21;\r\n}\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 100vw;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    background-color: rgb(51, 51, 51);\r\n}\r\n\r\n.text {\r\n    text-transform: capitalize;\r\n    color: #fff;\r\n    font-weight: bold;\r\n    font-size: 4em;\r\n}\r\n\r\n\r\n.points {\r\n\r\n\r\n    color: whitesmoke;\r\n\r\n}\r\n\r\n\r\n.gameover {\r\n    position: absolute;\r\n    right: calc(50% + -158px);\r\n    top: calc(50% + -79px);\r\n    z-index: 50;\r\n    width: 300px;\r\n    height: 150px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n    border-radius: 8px;\r\n    font-size: 24px;\r\n    background-color: white;\r\n    border: 2px solid grey;\r\n}\r\n\r\n\r\n.gameover.off {\r\n    display: none;\r\n}\r\n\r\n\r\n.gameover>i {\r\n    margin-top: 8px;\r\n    font-size: 10px;\r\n    color: rgb(248, 36, 36);\r\n\r\n}\r\n\r\n\r\n.gameover>button {\r\n    margin-top: 24px;\r\n    padding: 12px;\r\n    border-radius: 24px;\r\n    border: 1px solid whitesmoke;\r\n    background-color: rgb(46, 218, 46);\r\n    transition: background-color, color 0.5s ease-out;\r\n\r\n}\r\n\r\n.gameover>button:hover {\r\n    font-weight: bold;\r\n    background-color: rgb(51, 51, 51);\r\n    color: rgb(248, 36, 36);\r\n}\r\n\r\n\r\n#header-click-never {\r\n    height: 50px;\r\n    padding-bottom: 8px;\r\n    border-bottom: 2px solid black;\r\n\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -854,6 +854,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_objects_abstract_enemy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/objects/abstract-enemy */ "./src/core/objects/abstract-enemy.js");
 /* harmony import */ var _core_objects_clicker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/objects/clicker */ "./src/core/objects/clicker.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -878,11 +885,11 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 // Implementation
-var objects = {};
+var objects = [];
 var clicker = {};
 var points = 0;
 var gameover = false;
-var chanceSpawn = 30;
+var chanceSpawn = 70;
 var mouse = {
   x: innerWidth / 2,
   y: innerHeight / 2
@@ -909,13 +916,14 @@ addEventListener("resize", function () {
 var Square = /*#__PURE__*/function (_AbstractEnemy) {
   _inherits(Square, _AbstractEnemy);
   var _super = _createSuper(Square);
-  function Square() {
+  function Square(key) {
     var _this;
     _classCallCheck(this, Square);
-    for (var _len = arguments.length, props = new Array(_len), _key = 0; _key < _len; _key++) {
-      props[_key] = arguments[_key];
+    for (var _len = arguments.length, props = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      props[_key - 1] = arguments[_key];
     }
     _this = _super.call.apply(_super, [this].concat(props));
+    _this.key = key;
     _this.frailtyValue = Math.floor(Math.random() * (_this.radius * 3 - _this.radius));
     _this.sizeBodySquad = _this.radius * 3;
     return _this;
@@ -969,11 +977,13 @@ function init() {
   clicker = new _core_objects_clicker__WEBPACK_IMPORTED_MODULE_3__.Clicker(c, mouse.x, mouse.y);
   setInterval(function () {
     var random = Math.floor(Math.random() * 100);
-    var quantity = Object.values(objects).length + 1;
+    var quantity = objects.length;
     if (random <= chanceSpawn) {
-      objects["square".concat(quantity)] = new Square(45, 'orange', c, Math.floor(Math.random() * (canvas.width - 135)), 0);
+      objects.push(new Square(quantity, 15, 'orange', c, Math.floor(Math.random() * (canvas.width - 135)), -50));
     }
   }, 1000);
+
+  // objects.push(new Square(0, 15, 'orange', c, Math.floor(Math.random() * (canvas.width - 135)), 0))
 }
 
 // Animation Loop
@@ -981,24 +991,42 @@ function animate() {
   if (gameover) return;
   requestAnimationFrame(animate);
   c.clearRect(0, 0, canvas.width, canvas.height);
-  for (var property in objects) {
-    var object = objects[property];
-    object.update(gameOver);
+  var _iterator = _createForOfIteratorHelper(objects),
+    _step;
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var object = _step.value;
+      object.update(gameOver);
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
   }
   clicker.update(mouse.x, mouse.y);
 }
 canvas.addEventListener("click", function (e) {
   var xClick = e.clientX;
   var yClick = e.clientY;
-  var _loop = function _loop(property) {
-    var object = objects[property];
-    object.onClick(function () {
-      delete objects[property];
-      updatePoints(25);
-    }, xClick, yClick);
-  };
-  for (var property in objects) {
-    _loop(property);
+  var _iterator2 = _createForOfIteratorHelper(objects.entries()),
+    _step2;
+  try {
+    var _loop = function _loop() {
+      var _step2$value = _slicedToArray(_step2.value, 2),
+        index = _step2$value[0],
+        object = _step2$value[1];
+      object.onClick(function () {
+        objects.splice(index, 1);
+        updatePoints(25);
+      }, xClick, yClick);
+    };
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      _loop();
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
   }
 }, false);
 function restart() {

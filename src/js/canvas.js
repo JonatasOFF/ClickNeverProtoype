@@ -10,11 +10,12 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 // Implementation
-let objects = {};
+let objects = [];
 let clicker = {};
 let points = 0;
 let gameover = false;
-let chanceSpawn = 30
+let chanceSpawn = 70
+
 
 const mouse = {
   x: innerWidth / 2,
@@ -44,8 +45,9 @@ addEventListener("resize", () => {
 
 // Objects
 class Square extends AbstractEnemy {
-  constructor(...props) {
+  constructor(key, ...props) {
     super(...props);
+    this.key = key;
     this.frailtyValue = Math.floor(
       Math.random() * (this.radius * 3 - this.radius)
     );
@@ -98,27 +100,28 @@ function updatePoints(number) {
 function init() {
   clicker = new Clicker(c, mouse.x, mouse.y);
 
-  
+
   setInterval(() => {
     const random = Math.floor(Math.random() * 100)
-    const quantity = Object.values(objects).length + 1
+    const quantity = objects.length
 
     if (random <= chanceSpawn) {
 
-      objects[`square${quantity}`] = new Square(45, 'orange', c, Math.floor(Math.random() * (canvas.width - 135)), 0)
+      objects.push(new Square(quantity, 15, 'orange', c, Math.floor(Math.random() * (canvas.width - 135)), -50))
     }
   }, 1000)
-  
+
+  // objects.push(new Square(0, 15, 'orange', c, Math.floor(Math.random() * (canvas.width - 135)), 0))
 }
 
 // Animation Loop
 function animate() {
   if (gameover) return;
   requestAnimationFrame(animate);
-  c.clearRect(0, 0, canvas.width, canvas.height );
+  c.clearRect(0, 0, canvas.width, canvas.height);
 
-  for (const property in objects) {
-    const object = objects[property];
+  for (const object of objects) {
+
     object.update(gameOver);
   }
 
@@ -131,11 +134,11 @@ canvas.addEventListener(
     const xClick = e.clientX;
     const yClick = e.clientY;
 
-    for (const property in objects) {
-      const object = objects[property];
+    for (const [index, object] of objects.entries()) {
+
       object.onClick(
         () => {
-          delete objects[property];
+          objects.splice(index, 1)
           updatePoints(25)
         },
         xClick,

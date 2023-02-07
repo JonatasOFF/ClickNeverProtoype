@@ -5,7 +5,7 @@ export class Clicker extends ObjectAbstract {
         super(...props)
         this.height = 25;
         this.width = 10;
-
+        
     }
 
     draw() {
@@ -22,8 +22,8 @@ export class Clicker extends ObjectAbstract {
     }
 
     update(x, y) {
-        this.x = x;
-        this.y = y;
+        this.x = x - 4;
+        this.y = y -76;
         this.draw()
     }
 }
